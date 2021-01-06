@@ -14,7 +14,7 @@ setup(
     description="Convert GeoJSON files to BrokJSON files and vice versa from command line",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="",
+    url="https://github.com/Kasluk24/brokjson-file-converter",
     author="Lukas Gafner",
     author_email="gafner.lukas@gmx.ch",
     license="MIT",
