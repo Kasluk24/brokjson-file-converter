@@ -28,8 +28,8 @@ def toGeo(infile, outfile):
 if __name__ == '__main__':
 	# Argument parser
 	parser = argparse.ArgumentParser(description='Convert GeoJSON files to BrokJSON files and vice versa from command line')
-	parser.add_argument('function', choices=['g2b', 'b2g'], help='Direction of conversion: g2b = GeoJSON to brokJSON, b2g = brokJSON to GeoJSON)
-	parser.add_argument('infile', metavar='I', type=str, nargs=1, help='GeoJSON or brokJSON file to convert')
+	parser.add_argument('function', choices=['geo2brok', 'brok2geo'], help='Direction of conversion: geo2brok = GeoJSON to BrokJSON, brok2geo = BrokJSON to GeoJSON')
+	parser.add_argument('infile', metavar='I', type=str, nargs=1, help='GeoJSON or BrokJSON file to convert')
 	parser.add_argument('outfile', metavar='O', type=str, nargs='*', help='Converted file')
 	args = parser.parse_args()
 	
@@ -43,8 +43,8 @@ if __name__ == '__main__':
 		outfile = (infile.parents[0] / args.function / infile.name)
 
 	# Select function
-	if args.function == 'g2b':
+	if args.function == 'geo2brok':
 		toBrok(infile, outfile)
 		
-	if args.function == 'b2g':
+	if args.function == 'brok2geo':
 		toGeo(infile, outfile)
