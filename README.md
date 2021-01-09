@@ -17,7 +17,7 @@ What is [BrokJSON](https://www.brokjson.dev/)?
 ### Manual ussage
 - Download the zip file from GitHub and save it in a directory of your choice
 - Navigate to the file **__main__.py**
-- Open the console and run with
+- Open the console and run with<br>
 `python __main__.py ...`
 
 ## Ussage
