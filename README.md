@@ -4,15 +4,21 @@ Python command line application to convert BrokJSON files to GeoJSON files and v
 
 What is [BrokJSON](https://www.brokjson.dev/)?
 
-## Installation with pip
-### Directly from
+## Installation
+### Get directly from GitHub and install with pip
 - Execute the following command in the command line <br>
 `pip install git+https://github.com/Kasluk24/brokjson-file-converter.git#egg=brokjson-file-converter`
 
-### Manual download
+### Manual download and install with pip
 - Download the zip file from GitHub and save it in a directory of your choice
 - Install from the zip file with the following command (replace <brokjson-file-converter.zip> with the path to the downloaded file) <br>
 `pip install <brokjson-file-converter.zip>`
+
+### Manual ussage
+- Download the zip file from GitHub and save it in a directory of your choice
+- Navigate to the file **__main__.py**
+- Open the console and run with
+`python __main__.py ...`
 
 ## Ussage
 - The converter can convert BrokJSON files to GeoJSON files and also GeoJSON files to BrokJSON files. The first argument defines the direction.<br>
