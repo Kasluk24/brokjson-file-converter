@@ -3,7 +3,8 @@ import json
 import brokjson
 from pathlib import Path
 
-# Convert GeoJSON to BrokJSON
+
+# Convert GeoJSON to BrokJSON (single file)
 def toBrok(infile, outfile):
 	geo = json.loads(open(infile, 'r').read())
 	brok = brokjson.geo2brok(geo)
@@ -14,7 +15,7 @@ def toBrok(infile, outfile):
 		file.write(json.dumps(brok))
 	
 
-# Convert BrokJSON to GeoJSON
+# Convert BrokJSON to GeoJSON (single file)
 def toGeo(infile, outfile):
 	brok = json.loads(open(infile, 'r').read())
 	geo = brokjson.brok2geo(brok)
@@ -23,6 +24,16 @@ def toGeo(infile, outfile):
 	
 	with open(outfile, 'w') as file:
 		file.write(json.dumps(geo))
+
+	
+# Convert GeoJSON to BrokJSON (directory)
+def toBrokMass(infile, outfile):
+	pass
+
+
+# Convert BrokJSON to GeoJSON (directory)
+def toGeoMass(infile, outfile):
+	pass
 	
 
 if __name__ == '__main__':
@@ -44,7 +55,13 @@ if __name__ == '__main__':
 
 	# Select function
 	if args.function == 'geo2brok':
-		toBrok(infile, outfile)
-		
+		if infile.is_file():
+			toBrok(infile, outfile)
+		else:
+			toBrokMass(infile, outfile)
+
 	if args.function == 'brok2geo':
-		toGeo(infile, outfile)
+		if infile.is_file():
+			toGeo(infile, outfile)
+		else:
+			toGeoMass(infile, outfile)
