@@ -28,9 +28,10 @@ def toGeo(infile, outfile):
 
 # Convert GeoJSON to BrokJSON (directory)
 def toBrokMass(infile, outfile):
-    outfile.mkdir(exist_ok=True)
+    # outfile.parents[0].mkdir(exist_ok=True)
+    outfile.mkdir(parents=True, exist_ok=True)
 
-    infiles = infile.glob('/*.json')
+    infiles = infile.glob('*.json')
     for file in infiles:
         geo = json.loads(open(file, 'r').read())
         brok = brokjson.geo2brok(geo)
@@ -41,7 +42,8 @@ def toBrokMass(infile, outfile):
 
 # Convert BrokJSON to GeoJSON (directory)
 def toGeoMass(infile, outfile):
-    outfile.mkdir(exist_ok=True)
+    # outfile.parents[0].mkdir(exist_ok=True)
+    outfile.mkdir(parents=True, exist_ok=True)
 
     infiles = infile.glob('*.json')
     for file in infiles:
@@ -71,13 +73,13 @@ if __name__ == '__main__':
 
     # Select function
     if args.function == 'geo2brok':
-        if infile.is_file():
-            toBrok(infile, outfile)
-        else:
+        if infile.is_dir():
             toBrokMass(infile, outfile)
+        else:
+            toBrok(infile, outfile)
 
-        if args.function == 'brok2geo':
-            if infile.is_file():
-                toGeo(infile, outfile)
-            else:
-                toGeoMass(infile, outfile)
+    if args.function == 'brok2geo':
+        if infile.is_dir():
+            toGeoMass(infile, outfile)
+        else:
+            toGeo(infile, outfile)
