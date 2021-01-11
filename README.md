@@ -25,12 +25,12 @@ What is [BrokJSON](https://www.brokjson.dev/)?
 geo2brok = from GeoJSON to BrokJSON, brok2geo = BrokJSON to GeoJSON
 
 ### Convert single file
-- The second argument defines the file to be converted.
-- The third argument is optional and specifies the converted file. If this file is not specified, the converter creates a subfolder (geo2brok or brok2geo depending on the selected direction) and saves the converted file with the original filename in it.
+- The second argument defines the file to be converted
+- The third argument is optional and specifies the converted file. If this file is not specified, the converter creates a subfolder (geo2brok or brok2geo depending on the selected direction) and saves the converted file with the original filename in it
 
 ### Mass conversion
-- To convert all files in a directory with the ending "\*.json", just specifie the directory instead of the filename.
-- If no export directory is specified, the files are written to a subfolder named "geojson" or "brokjson" depending on the direction.
+- To convert all files in a directory with the ending "\*.json", just specifie the directory instead of the filename
+- If no export directory is specified, the files are written to a subfolder named "geojson" or "brokjson" depending on the output format
 
 ## Examples
 - Convert the GeoJSON file "GeoJSON.json" to the BrokJSON file BrokJSON.json<br>
