@@ -42,7 +42,10 @@ def toGeo(infile, outfile=None):
 def toBrokMass(indir, outdir=None):
     # Specifie output directory if not given and create it
     if not outdir:
-        outdir = Path(indir / 'brokjson')
+        if args.overwrite == 1:
+            ouudir = indir
+        else:
+            outdir = Path(indir / 'brokjson')
 
     outdir.mkdir(parents=True, exist_ok=True)
 
@@ -62,7 +65,11 @@ def toBrokMass(indir, outdir=None):
 def toGeoMass(indir, outdir=None):
     # Specifie output directory if not given and create it
     if not outdir:
-        outdir = Path(indir / 'geojson')
+        if args.overwrite == 1:
+            outdir = indir
+        else:
+            outdir = Path(indir / 'geojson')
+            
 
     outdir.mkdir(parents=True, exist_ok=True)
 
@@ -82,6 +89,7 @@ if __name__ == '__main__':
     # Argument parser
     parser = argparse.ArgumentParser(description='Convert GeoJSON files to BrokJSON files and vice versa from command line')
     parser.add_argument('function', choices=['geo2brok', 'brok2geo'], help='Direction of conversion: geo2brok = GeoJSON to BrokJSON, brok2geo = BrokJSON to GeoJSON')
+    parser.add_argument('-o', '--overwrite', dest='overwrite', action='store_const', const=1, default=0, help='Overwrite already existing files, even if no export directory is specified')
     parser.add_argument('inpath', metavar='I', type=str, nargs=1, help='GeoJSON or BrokJSON file or directory to convert')
     parser.add_argument('outpath', metavar='O', type=str, nargs='*', help='Converted file or output directory')
     args = parser.parse_args()
