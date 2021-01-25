@@ -43,7 +43,7 @@ def toBrokMass(indir, outdir=None):
     # Specifie output directory if not given and create it
     if not outdir:
         if args.overwrite == 1:
-            ouudir = indir
+            outdir = indir
         else:
             outdir = Path(indir / 'brokjson')
 
