@@ -8,7 +8,10 @@ from pathlib import Path
 def toBrok(infile, outfile=None):
     # Specifie outfile if not given and create directory
     if not outfile:
-        outfile = Path(infile.parents[0] / 'brokjson' / infile.name)
+        if args.overwrite == 1:
+            outfile = infile
+        else:
+            outfile = Path(infile.parents[0] / 'brokjson' / infile.name)
 
     outfile.parents[0].mkdir(exist_ok=True)
 
@@ -25,7 +28,10 @@ def toBrok(infile, outfile=None):
 def toGeo(infile, outfile=None):
     # Specifie outfile if not given and create directory
     if not outfile:
-        outfile = Path(infile.parents[0] / 'geojson' / infile.name)
+        if args.overwrite == 1:
+            outfile = infile
+        else:
+            outfile = Path(infile.parents[0] / 'geojson' / infile.name)
 
     outfile.parents[0].mkdir(exist_ok=True)
 
