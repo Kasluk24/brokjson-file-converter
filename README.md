@@ -5,6 +5,8 @@ Python command line application to convert BrokJSON files to GeoJSON files and v
 What is [BrokJSON](https://www.brokjson.dev/)?
 
 ## Installation
+Minimal required Python version: 3.4
+
 ### Get directly from GitHub and install with pip
 - Execute the following command in the command line <br>
 `pip install git+https://github.com/Kasluk24/brokjson-file-converter.git#egg=brokjson-file-converter`
@@ -32,11 +34,17 @@ geo2brok = from GeoJSON to BrokJSON, brok2geo = BrokJSON to GeoJSON
 - To convert all files in a directory with the ending "\*.json", just specifie the directory instead of the filename
 - If no export directory is specified, the files are written to a subfolder named "geojson" or "brokjson" depending on the output format
 
+### Overwrite / keep files
+- By default, the converter creates a new folder if no export directory or file has been specified and keeps the original files
+- With the flag "-o" or "--overwrite" the original files are overwritten, even if no export directory / file is specified
+- If an export directory or file has been specified, existing files in the directory are overwritten if they have the same name
+
 ## Examples
 - Convert the GeoJSON file "GeoJSON.json" to the BrokJSON file BrokJSON.json<br>
 `python -m brokjson-file-converter geo2brok GeoJSON.json BrokJSON.json`
 - Convert the brokJSON file "BrokJSON.json" to the GeoJSON file GeoJSON.json<br>
 `python -m brokjson-file-converter brok2geo BrokJSON.json GeoJSON.json`
-- Convert all "\*.json" files inside the directory "brokfiles" to GeoJSON files into the directory "geofiles"
+- Convert all "\*.json" files inside the directory "brokfiles" to GeoJSON files into the directory "geofiles"<br>
 `python -m brokjson-file-converter brok2geo brokfiles geofiles`
-
+- Convert all "\*.json" files inside the directory "geofiles" to BrokJSON files and overwrite the original files<br>
+`python -m brokjson-file-converter -o geo2brok geofiles`
