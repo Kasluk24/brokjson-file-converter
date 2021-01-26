@@ -46,5 +46,5 @@ geo2brok = from GeoJSON to BrokJSON, brok2geo = BrokJSON to GeoJSON
 `python -m brokjson-file-converter brok2geo BrokJSON.json GeoJSON.json`
 - Convert all "\*.json" files inside the directory "brokfiles" to GeoJSON files into the directory "geofiles"
 `python -m brokjson-file-converter brok2geo brokfiles geofiles`
-- Convert all "\*.json" files inside the directory "geofiles" to BrokJSON files into and overwrite the original files
+- Convert all "\*.json" files inside the directory "geofiles" to BrokJSON files and overwrite the original files
 `python -m brokjson-file-converter -o geo2brok geofiles`
